@@ -162,12 +162,12 @@
 // let removedCars = cars.slice(1, 4);             // 1st value ka matlab hota hai kay kis index say start karna hai aur
 //                                                 // 2nd value ka matlab hota hai kay kis index tak remove karna hai ....
 // console.log(cars);
-// console.log(removedCars);            
+// console.log(removedCars);
 
 // Inside Flow Of Code :
 
-// The first parameter takes the value of the first index and the second parameter takes 
-// the value of the last index but 
+// The first parameter takes the value of the first index and the second parameter takes
+// the value of the last index but
 // it does not include the last index .....
 // It means that the last index will not be included in the new array .....
 
@@ -175,13 +175,12 @@
 // If I enter (1,4) ===>> it subracts the first parameter from the second parameter (i.e : 4-1 = 3)
 // and then returns the new array according  to the answer of sutraction .....
 
-
 // let fruits = ["apple", "mango", "banana", "grapes"];
-// console.log(fruits.splice(0, 3, "kiwi", "pineapple"));  
+// console.log(fruits.splice(0, 3, "kiwi", "pineapple"));
 
 // Here we removed 3 elements from the array and added 2 new elements to the array ....
 // But this only showing the removed part of the array ...
-// And the updated array is not showing ... 
+// And the updated array is not showing ...
 // If we want to show the updated array then we have to console "fruits" again ...
 
 // console.log(fruits)
@@ -232,10 +231,84 @@
 // console.log(spliced);        // ["banana", "orange"]
 // console.log(fruits);         // ["apple", "mango", "kiwi", "pear", "grapes"]
 
-
 // In short:
 
 // Use slice(), when you just need a copy/extraction (non-destructive).
 
 // Use splice(), when you need to modify (add/remove/replace) elements in the original array.
+
+// ------------------------------------------------------------------------------------------------------------
+
+// Method for checking the Index of an Array :
+
+// let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
+// console.log(cars.indexOf("Honda"));       // 3 
+
+// Method for checking whether it Includes that Particular Element or Not :
+
+// let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+// console.log(days.includes("Sunday"))        // True 
+
+
+// You can also use "indexOf" and "include" method on Strings :
+
+// let name = "Hasnain"
+// console.log(name.indexOf("i"))             // 5
+
+// let myName = "Hasnain"
+// console.log(myName.includes("e"))         // False
+
+
+// New Method in ES6 for Creating a Shallow Copy :
+
+// Old Method :
+// let array = ["1","2","3","4","5"]
+// let newArray = array                   // This creates a copy [by reference] 
+// console.log(newArray)
+
+// New Method :
+// let array = ["1","2","3","4","5"]
+// let newArray = [...array , "6","7"]      // This method also allows to add anything to this Array
+//              // Spread Operator
+// console.log(newArray)                    // New Syntax for Copying an Array
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+// Nested Array :
+
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]                 // Targeting "c"
+// console.log(array[5][2])
+
+
+// Using Splice Method :
+
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]                // Pushing "x" between "c" and "d"
+// array[5].splice(3, 0, "x")
+// console.log(array)
+
+
+// Using Slice Method :
+
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]  
+// let inner = array[5]
+// let newInner = inner.slice(0, 2).concat("x", inner.slice(2))
+// console.log(newInner)
+
+
+
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]  
+// let part = array.slice(3)          // yahan jo number bracket mein ho ga wo index hota hai aur us ka matlab hai 
+//                                    // kay us number say lay kar end tak ka part(slice) nikaal/extract kar lo .....
+// console.log(part)                     //  [4, 5, ["a", "b", "c", "d"]]
+
+// ----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
