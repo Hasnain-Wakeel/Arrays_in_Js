@@ -186,6 +186,7 @@
 
 // console.log(fruits)
 
+// ------------------------------------------------------------------------------------------------
 
 // Question : what is the major difference between slice and splice method ??
 
@@ -217,7 +218,7 @@
 // deleteCount: number of elements to remove.
 // item1, item2, …: elements to insert.
 
-5. Example :
+// 5. Example :
 
 // let fruits = ["apple", "mango", "banana", "orange", "grapes"];
 
@@ -237,3 +238,4 @@
 // Use slice(), when you just need a copy/extraction (non-destructive).
 
 // Use splice(), when you need to modify (add/remove/replace) elements in the original array.
+
