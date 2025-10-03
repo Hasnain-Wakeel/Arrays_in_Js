@@ -242,13 +242,12 @@
 // Method for checking the Index of an Array :
 
 // let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
-// console.log(cars.indexOf("Honda"));       // 3 
+// console.log(cars.indexOf("Honda"));       // 3
 
 // Method for checking whether it Includes that Particular Element or Not :
 
 // let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-// console.log(days.includes("Sunday"))        // True 
-
+// console.log(days.includes("Sunday"))        // True
 
 // You can also use "indexOf" and "include" method on Strings :
 
@@ -258,12 +257,11 @@
 // let myName = "Hasnain"
 // console.log(myName.includes("e"))         // False
 
-
 // New Method in ES6 for Creating a Shallow Copy :
 
 // Old Method :
 // let array = ["1","2","3","4","5"]
-// let newArray = array                   // This creates a copy [by reference] 
+// let newArray = array                   // This creates a copy [by reference]
 // console.log(newArray)
 
 // New Method :
@@ -279,36 +277,131 @@
 // let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]                 // Targeting "c"
 // console.log(array[5][2])
 
-
 // Using Splice Method :
 
 // let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]                // Pushing "x" between "c" and "d"
 // array[5].splice(3, 0, "x")
 // console.log(array)
 
-
 // Using Slice Method :
 
-// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]  
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]
 // let inner = array[5]
 // let newInner = inner.slice(0, 2).concat("x", inner.slice(2))
 // console.log(newInner)
 
-
-
-// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]  
-// let part = array.slice(3)          // yahan jo number bracket mein ho ga wo index hota hai aur us ka matlab hai 
+// let array = [1, 2, 3, 4, 5, ["a", "b", "c", "d"]]
+// let part = array.slice(3)          // yahan jo number bracket mein ho ga wo index hota hai aur us ka matlab hai
 //                                    // kay us number say lay kar end tak ka part(slice) nikaal/extract kar lo .....
 // console.log(part)                     //  [4, 5, ["a", "b", "c", "d"]]
 
 // ----------------------------------------------------------------------------------------------------------------------------------------
 
+//  Strings:
+// Measuring Length and Extracting Parts :
 
+// let userCity = prompt("Enter Your City Name :")
+// let cityLength = userCity.length
+// console.log("Length of your city is : " + cityLength)
 
+// ------- Slicing First Character ------
 
+// let firstChar = userCity.slice(0,1)
+// console.log(firstChar)
 
+// ------ Slicing Some Characters -------
 
+// let someChar = userCity.slice(2,6)
+// console.log(someChar)
 
+// ------- Slicing All Characters From A Specific Point -------
 
+// let someChar = userCity.slice(3)            // Takes all characters from index 3 to end
+// console.log(someChar)
 
+// ------------ Capitalizing First Character and De-Capitalizing Other Characters : ------------------
+
+// let userCity = prompt("Enter Your City Name :")
+// let firstChar = userCity.slice(0,1)
+// let otherChars = userCity.slice(1)
+// firstChar = firstChar.toUpperCase();
+// otherChars = otherChars.toLowerCase()
+// let cappedCity = firstChar + otherChars;
+// console.log(firstChar + otherChars)
+
+// ------------------ Making Abbreviations Of Months : -----------------
+
+// let month = prompt("Enter Any Month Of The Year :")
+// let monthAbbreviation;
+// let monthLength = month.length
+// // console.log("The length of " + 'month' + " is " + 'monthLength')
+// if(monthLength > 3){
+//     monthAbbreviation = month.slice(0,3)
+// }
+// console.log(`The Abbreviation of the '${month}' is '${monthAbbreviation}'`)
+
+// ----------------- Checking Double Spaces : ----------------
+
+// let text = prompt("Enter some text :");
+// let numInText = text.length;
+// let spaceFound = false;
+// for (i = 0; i < numInText; i++) {
+//   if (text.slice(i, i + 2) === "  ") {
+//     console.log("Double Spaces Found!")
+//     console.log("Aap ne yahan double space day diya hai (position: ");
+//     spaceFound = true;
+//     break;
+//   }
+// }
+// if(spaceFound === false){
+//     spaceFound = false
+//     console.log("No Double Spaces Found!")
+// }
+// console.log(spaceFound) 
+
+// --------------------------------------------
+
+// let text = prompt("Enter some text :");
+// let found = false;
+
+// // text ko spaces par todte hain
+// let parts = text.split(" ");
+
+// for (let i = 0; i < parts.length; i++) {
+//     if (parts[i] === "") {
+//         // empty string ka matlab hai double space tha
+//         let wordBefore = parts[i - 1] || "(start)";  // agar pehla word na ho
+//         let wordAfter = parts[i + 1] || "(end)";    // agar agla word na ho
+
+//         console.log(`Aap nay "${wordBefore}" aur "${wordAfter}" kay beech mein extra space day diya hai`);
+//         found = true;
+//     }
+// }
+
+// if (!found) {
+//     console.log("Kisi bhi jaga extra space nahi mila.");
+// }
+
+// ----------------- Checking Double Spaces : ----------------
+
+// let text = prompt("Enter some text :");
+// let found = false;
+
+// // text ko spaces par todte hain
+// let parts = text.split(" ");
+
+// for (let i = 0; i < parts.length; i++) {
+//     if (parts[i] === "" && parts[i - 1] !== "") {
+//         let wordBefore = parts[i - 1] || "(start)";
+//         let wordAfter = parts[i + 1] || "(end)";
+
+//         console.log(`Aap nay '${wordBefore}' aur '${wordAfter}' kay beech mein Extra Space day diya hai!`);
+//         found = true;
+//         break;   // yahan loop ruk jaayega
+//     }
+// }
+
+// if (!found) {
+//     console.log("Aap nay kisi bhi jaga extra space nahi diya.");
+// }
 
