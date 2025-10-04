@@ -343,65 +343,118 @@
 // ----------------- Checking Double Spaces : ----------------
 
 // let text = prompt("Enter some text :");
-// let numInText = text.length;
 // let spaceFound = false;
-// for (i = 0; i < numInText; i++) {
-//   if (text.slice(i, i + 2) === "  ") {
-//     console.log("Double Spaces Found!")
-//     console.log("Aap ne yahan double space day diya hai (position: ");
-//     spaceFound = true;
-//     break;
+
+// if (text === null || text.trim() === "" || text === undefined) {
+//   console.log("Please Enter Some Text!");
+// }
+// else {
+//   for (let i = 0; i < text.length ; i++) {
+//     if (text.slice(i, i + 2) === "  ") {
+//       console.log("Double Spaces Found!");
+//       spaceFound = true;
+//       break;
+//     }
+// }
+// if (spaceFound === false) {
+//     console.log("No Double Spaces Found!");
 //   }
 // }
-// if(spaceFound === false){
-//     spaceFound = false
-//     console.log("No Double Spaces Found!")
-// }
-// console.log(spaceFound) 
+
+// -------- Working Of "text.slice(i, i + 2)" : ---------
+
+// text.slice(start, end) ek substring nikalta hai.
+// Yahan i se lekar i + 2 tak ka chhota string banta hai (2 characters ek saath).
+
+// Example: Agar text "Hello  World" hai:
+
+// i = 0 → "He"
+// i = 1 → "el"
+// i = 2 → "ll"
+// i = 3 → "lo"
+// i = 4 → "o "       (Yahan space bhi aayega)
+// i = 5 → "  "       (Do spaces ek saath)
 
 // --------------------------------------------
 
-// let text = prompt("Enter some text :");
-// let found = false;
-
-// // text ko spaces par todte hain
-// let parts = text.split(" ");
-
-// for (let i = 0; i < parts.length; i++) {
-//     if (parts[i] === "") {
-//         // empty string ka matlab hai double space tha
-//         let wordBefore = parts[i - 1] || "(start)";  // agar pehla word na ho
-//         let wordAfter = parts[i + 1] || "(end)";    // agar agla word na ho
-
-//         console.log(`Aap nay "${wordBefore}" aur "${wordAfter}" kay beech mein extra space day diya hai`);
-//         found = true;
-//     }
-// }
-
-// if (!found) {
-//     console.log("Kisi bhi jaga extra space nahi mila.");
-// }
-
-// ----------------- Checking Double Spaces : ----------------
+// Detecting Space (Only At First Place) :
 
 // let text = prompt("Enter some text :");
 // let found = false;
 
-// // text ko spaces par todte hain
-// let parts = text.split(" ");
+// // Agar user ne kuch bhi enter nahi kiya (ya sirf spaces diye toh) :
 
-// for (let i = 0; i < parts.length; i++) {
+// if (text.trim().length === 0) {
+//   console.log("Kuch Enter Nahi Kiya gaya!");
+//   console.log("Please Enter Some Text!");
+// } else {
+//   // Text ko spaces par todte hain:
+//   let parts = text.split(" ");       // [text.split(" ")] Ye Text Ko Break Karta Hai Aur Un Ka Aik Array Bnata Hai.  
+
+//   for (let i = 0; i < parts.length; i++) {
 //     if (parts[i] === "" && parts[i - 1] !== "") {
-//         let wordBefore = parts[i - 1] || "(start)";
-//         let wordAfter = parts[i + 1] || "(end)";
+//       let wordBefore = parts[i - 1] || "(start)";
+//       let wordAfter = parts[i + 1] || "(end)";
 
-//         console.log(`Aap nay '${wordBefore}' aur '${wordAfter}' kay beech mein Extra Space day diya hai!`);
-//         found = true;
-//         break;   // yahan loop ruk jaayega
+//       console.log(
+//         `Aap nay '${wordBefore}' aur '${wordAfter}' kay beech mein Extra Space day diya hai!`
+//       );
+//       found = true;
+//         break;               // yahan loop ruk jaayega
+//     }
+//   }
+
+//   if (found === false) {
+//     console.log("Aap nay kisi bhi jaga extra space nahi diya.");
+//   }
+// }
+
+// ------------------------------------------------
+
+// // Detecting Double Spacing With Different Approach :
+
+// let text = prompt("Enter some text :").trim();   // User se input mangta hai aur trim shuru/ending
+//                                                               // spaces hata deta hai.
+// let found = false;
+
+// if (text.length === 0) {
+
+//     // Agar user ne kuch bhi enter nahi kiya (ya sirf spaces diye) toh direct ye message:
+//     console.log("Please Enter Some Text!");
+// }
+// else {
+//     let parts = text.split(" ");                 // Text ko spaces mein break karay ga.
+
+//     for (let i = 0; i < parts.length; i++) {
+//         if (parts[i] === "") {
+
+//             // Example :
+
+//             // Input : "Hello  World"
+
+//             // Split → ["Hello", "", "World"]
+
+//             // "Hello" → Pehla word,
+//             //   ""  → Pehlay space ne aik cut lagaya aur doosray space ne phir se cut lagaya,
+//             //           ekin beech mein koi character nahi tha toh aik Empty String ban gayi.
+//             // "World" → Agla word.
+            
+//             // Empty string ka matlab hai double space tha :
+
+//             let wordBefore = parts[i - 1] || "(start)";     // Agar pehla word na ho toh 'start' print karo,
+//             let wordAfter = parts[i + 1] || "(end)";        // Agar agla word na ho toh 'end' print karo.
+
+//             console.log(`Aap nay "${wordBefore}" aur "${wordAfter}" kay beech mein Double Space day diya hai`);
+//             found = true;
+//             break;
+//         }
+//     }
+//     if (found === false || !found) {
+//         // Agar loop ke baad bhi koi Empty String na milay :
+//         console.log("Koi Double Space nahi mila.");
 //     }
 // }
 
-// if (!found) {
-//     console.log("Aap nay kisi bhi jaga extra space nahi diya.");
-// }
+
+// ----------------------------------
 
