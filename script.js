@@ -389,7 +389,7 @@
 //   console.log("Please Enter Some Text!");
 // } else {
 //   // Text ko spaces par todte hain:
-//   let parts = text.split(" ");       // [text.split(" ")] Ye Text Ko Break Karta Hai Aur Un Ka Aik Array Bnata Hai.  
+//   let parts = text.split(" ");       // [text.split(" ")] Ye Text Ko Break Karta Hai Aur Un Ka Aik Array Bnata Hai.
 
 //   for (let i = 0; i < parts.length; i++) {
 //     if (parts[i] === "" && parts[i - 1] !== "") {
@@ -438,7 +438,7 @@
 //             //   ""  → Pehlay space ne aik cut lagaya aur doosray space ne phir se cut lagaya,
 //             //           ekin beech mein koi character nahi tha toh aik Empty String ban gayi.
 //             // "World" → Agla word.
-            
+
 //             // Empty string ka matlab hai double space tha :
 
 //             let wordBefore = parts[i - 1] || "(start)";     // Agar pehla word na ho toh 'start' print karo,
@@ -455,6 +455,23 @@
 //     }
 // }
 
-
 // ----------------------------------
+
+// -------------- Best , Easy , Simple and Most Efficient Way To Find Extra Spacing ----------
+
+// let text = prompt("Enter some text");
+
+// if (!text || text.trim().length === 0) {
+//     alert("Please Enter Some Text!");
+// } 
+// else {
+//   text = text.trim();
+//   if (text.includes("  ") || text.includes("   ") || text.includes("    ") || text.includes("     ") ) {
+//     alert("Extra Spacing Found!");
+//   } 
+//   else {
+//     alert("No Extra Spacing Found!");
+//   }
+// }
+
 
