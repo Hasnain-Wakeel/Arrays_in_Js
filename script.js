@@ -463,15 +463,66 @@
 
 // if (!text || text.trim().length === 0) {
 //     alert("Please Enter Some Text!");
-// } 
+// }
 // else {
 //   text = text.trim();
 //   if (text.includes("  ") || text.includes("   ") || text.includes("    ") || text.includes("     ") ) {
 //     alert("Extra Spacing Found!");
-//   } 
+//   }
 //   else {
 //     alert("No Extra Spacing Found!");
 //   }
 // }
 
+// ---------------------------------------------------------------------------------------------------------------
+
+// let warName = "World War II"
+// let newWarName = warName.slice(0,12)
+// "OR"
+// let newWarName = warName.slice(0)
+// console.log(newWarName)
+
+// --------------------------
+
+// let  warName = "World War II";
+
+// for (i = 0 ; i < warName.length; i++){
+
+//     console.log(warName[i])
+// }
+
+// --------------------------
+
+// let warName = "World War II";
+// for (i = 0; i < warName.length; i++) {
+//     if (warName.slice(i) === "World War II"){
+//         console.log("The Second World War")
+//     }
+// }
+
+// Iss code mein "i" ki value her step per increase ho rahii hai , aur condition "12" dafa check ho rahii hai lekin 
+// sirf pehli dafa he condition true ho rahii hai , iss liye console sirf sik dafa he chal rha hai ...
+
+// "i" ki value change honay say conditin kesay false ho rahii hai , 
+//    neechay wala code is baat ko explain kar rha hai :
+
+// let warName = "World War II";
+// for (i = 0; i < warName.length; i++) {
+//     console.log("i =", i, "| slice(i) =", warName.slice(i));
+// }
+
+// -----------------------
+
+// let warName = "World War II";
+// for (i = 0; i < warName.length; i++) {
+//     if (warName.slice(0) === "World War II"){ 
+//         console.log("The Second World War")
+//     }
+// }
+
+// Agar hum slice mein "i" ki jaga "0" dein gay toh aik he condition baar baar check ho gii , aur "0" mein her baar 
+//                  "World War II" he aaye ga , iss liye condition kabhi false nahi ho gii , 
+//                                 aur console "12" dafa print ho jaaye ga ...  
+
+// ------------------------------------
 
