@@ -22,23 +22,25 @@
 
 // Primitive Data Types :
 
-// 1.String
-// 2.Number
-// 3.Boolean
-// 4.Null
-// 5.Undefined
-// 6.Symbol
-// 7.BigInt
+// 1. String
+// 2. Number
+// 3. Boolean
+// 4. Null
+// 5. Undefined
+// 6. Symbol
+// 7. BigInt
 
 // Non-Primitive Data Types :
 
-// 1.Array
-// 2.Function
-// 3.Object
+// 1. Array
+// 2. Function
+// 3. Object
+// 4. Date 
+
 
 // Examples For Learning Differences Between Primitive and Non-Primitive Data Types :
 
-// 1 :
+// --------------  1 : Prmitive Data Types :  --------------
 
 // let name1 = "Hasnain Raza";
 // let name2 = name1;
@@ -50,43 +52,49 @@
 // console.log(name1); // Hasnain Raza (No Change In Original Data)
 // console.log(name2); // Name Changed (Shallow Copy/Copied Data Changed)
 
-// 2 :
+// --------------  2 : Non-Primitive Data Types :  --------------
 
 // let students_1 = ["ali", "zain", "anas", "fahad"];
 // let students_2 = students_1
 
-// students_2.push("ameen")                // =======>>  Original Array (students) mein data change ho jaaye ga ....
+// students_2.push("ameen")     // =======>>  Original Array (students) mein data change ho jaaye ga ....
 
 // console.log(students_1) // ["ali", "zain", "anas", "fahad", "ameen"] (Original Array bhi change ho ga .....)
 // console.log(students_2) // ["ali", "zain", "anas", "fahad", "ameen"] (Copied Array bhi change ho ga .....)
 
-//         // VS
+//         // 2. How Non-Primitive Data Types Actually Works :
 
-// // Mutable / Non-Primitive Data Types :
+// // Mutable (Changeable) / Non-Primitive Data Types :
 
-// 1 :
+// -------------  1 : Wrong Approach :  ---------------- 
 
 // let person1 = ["Saad", "Ali", "Zain"]
 // let person2 = person1
-// person2 = "Anas"                 //  Wrond Method To Change Data In Non-Primitive Data Types ....
-//                                 //  Mujhay yahan per btana chahiye kay mein kis index mein change karna chahta hon ...
-//                                // For Example : person2[0] = "Anas"
-//                               // person2 = person1
+// person2 = "Anas"         //  Wrond Method To Change Data In Non-Primitive Data Types ....
+//                          //  Mujhay yahan per btana chahiye kay mein kis index mein change karna chahta hon ...
+//                          //  For Example : person2[0] = "Anas"
+//                          //  person2 = person1
 
 // console.log(person1) // ["Saad", "Ali", "Zain"]
 // console.log(person2) // Anas
 
-// 2 :
+
+// --------------  2 : Correct Approach :  ----------------
 
 // let array1 = ["a", "b","c"];
 // let array2 = array1;
 
-// // console.log(array2)    // ["a", "b","c"]
+// // console.log(array2)     // ["a", "b","c"]
 
-// array2 = ["c", "d"];     // The issue was that ===>> "I was not accessing the newArray Directly" .....
+// // array2 = ["c", "d"];    // The issue was that ===>> "I was not accessing/targeting the newArray correctly" .....
 
-// console.log(array1);        // ["a", "b","c"]
-// console.log(array2);       //  ["c", "d"]
+// array2[0] = "x";  
+// array1[1] = "y";   
+// array2[2] = "z";          
+
+// console.log(array1);    // ["x", "y", "z"]
+// console.log(array2);    // ["x", "y", "z"]
+
 
 // ------------------------------------------------------------------------------
 
@@ -110,7 +118,7 @@
 // console.log("Array3 Becomes : " , array3);       // [ 'y', 'z' ]
 // console.log("Array4 Becomes : " , array4);      // [ 'y', 'z' ]
 
-// -------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
 
 // Adding and Removing Elements From Array :
 
@@ -125,11 +133,14 @@
 // An Interesting Question :
 
 // Question : kya ho ga agar mein pop() ya shift() ki parenthesis mein koi value day don ??
-// Answer : Agar mein in Methods mein koi value day bhi don tab bhi ye apna pre-defined work he perform karein gay aur parenthesis mein dii gayi value ko ye ignore kar dein gay .....
+// Answer : Agar mein in Methods mein koi value day bhi don tab bhi ye apna pre-defined work he perform karein gay
+// aur parenthesis mein dii gayi value ko ye ignore kar dein gay .....
 
 // ----------------------------------------------------------------------------------------------------------------------
 
-// Splice :
+// ----------------------  Splice :  -------------------------
+
+// Splice : Used to add/remove/replace elements in an array, and it modifies the original array.
 
 // let fruits = ["apple", "mango", "banana", "orange", "grapes"];
 // fruits.splice(2, 1);         // 1st value ka matlab hota hai kay kis index say removing start karni hai aur
@@ -156,7 +167,9 @@
 // // fruits.splice(0, 3, 6)                                      //  Adding number values to the Array
 // console.log(fruits)
 
-// Slice :
+// -----------------------------  Slice :  --------------------------
+
+// Slice : Used to extract a part of an array and returns the extracted elements in a new array.
 
 // let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
 // let removedCars = cars.slice(1, 4);             // 1st value ka matlab hota hai kay kis index say start karna hai aur
@@ -164,26 +177,45 @@
 // console.log(cars);
 // console.log(removedCars);
 
-// Inside Flow Of Code :
+// ------------------------  Inside Flow Of Code :  ------------------------
 
-// The first parameter takes the value of the first index and the second parameter takes
-// the value of the last index but
-// it does not include the last index .....
+// 1. Slice :
+
+// The first parameter takes an index and the second parameter also takes an index last index but
+// it does not include the last index (last index is not included).....
 // It means that the last index will not be included in the new array .....
 
-// Understand with this Example :
-// If I enter (1,4) ===>> it subracts the first parameter from the second parameter (i.e : 4-1 = 3)
-// and then returns the new array according  to the answer of sutraction .....
+// Understand 'slice flow' with this Example :
+
+// If I enter (1, 4) ===>> it subracts the first parameter from the second parameter (i.e : 4-1 = 3)
+// and then returns the new array according to the answer of sutraction .....
+
+// Example : 
+
+// let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
+// let removedCars = cars.slice(1, 4);       // 4-1 = 3 => [BMW, Ford, Honda] it returns 3 elements
+// console.log(cars);
+// console.log(removedCars);
+
+// 2. ------------------------ Splice : ---------------------------
+
+// The 1st parameter takes an index and 2nd parameter takes the number of elements to be removed from the array ....  
+// The 3rd parameter takes the elements to be added to the array after the removed elements ....
+
+// Understand 'splice flow' with this Example :
+
+// Example :
 
 // let fruits = ["apple", "mango", "banana", "grapes"];
-// console.log(fruits.splice(0, 3, "kiwi", "pineapple"));
+// let removedFruits = fruits.splice(2, 2, "kiwi", "pineapple");
+// console.log(fruits);
+// console.log(removedFruits);
 
-// Here we removed 3 elements from the array and added 2 new elements to the array ....
+// Here we removed 2 elements from the array and added 2 new elements to the array ....
 // But this only showing the removed part of the array ...
 // And the updated array is not showing ...
-// If we want to show the updated array then we have to console "fruits" again ...
-
-// console.log(fruits)
+// If we want to show the updated array then we have to console "fruits" again, 
+// or do something like this (saving the updated array in a variable) ...
 
 // ------------------------------------------------------------------------------------------------
 
@@ -193,58 +225,66 @@
 
 // 1. Purpose :
 
-// slice() → Used to copy or extract a part of an array without changing the original array.
-// splice() → Used to add/remove/replace elements in an array, and it modifies the original array.
+// slice() --> Used to copy or extract a part of an array without changing the original array.
+// splice() --> Used to add/remove/replace elements in an array, and it modifies the original array.
 
 // 2. Return Value :
 
-// slice() → Returns a new array containing the extracted elements.
-// splice() → Returns an array of the removed elements (if any).
+// slice() --> Returns a new array containing the extracted elements.
+// splice() --> Returns an array of the removed elements (if any).
 
 // 3. Effect on Original Array :
 
-// slice() → Does not change the original array.
-// splice() → Changes the original array.
+// slice() --> Does not change the original array.
+// splice() --> Changes the original array.
 
 // 4. Syntax :
 
-// slice(start, end)
+// -------  slice(start, end)        // both are indexes.  -------
+
 // start: index where extraction begins.
 // end: index before which extraction stops (not included).
 
-// splice(start, deleteCount, item1, item2, …)
+
+// -------- splice(start, deleteCount, item1, item2, ...)  -------
+
 // start: index where changes begin.
-// deleteCount: number of elements to remove.
-// item1, item2, …: elements to insert.
+// deleteCount: number of elements to be removed.
+// item1, item2, ... : elements to be inserted.
 
 // 5. Example :
 
 // let fruits = ["apple", "mango", "banana", "orange", "grapes"];
 
 // slice example :
+
 // let sliced = fruits.slice(1, 3);
 // console.log(sliced);         // ["mango", "banana"]
 // console.log(fruits);         // ["apple", "mango", "banana", "orange", "grapes"]
 
+
 // splice example :
+
 // let spliced = fruits.splice(2, 2, "kiwi", "pear");
 // console.log(spliced);        // ["banana", "orange"]
 // console.log(fruits);         // ["apple", "mango", "kiwi", "pear", "grapes"]
 
-// In short:
 
+// ----------------------- In short : --------------------------
+
+// Use slice(), when you need a copy of a part of the original array.
 // Use slice(), when you just need a copy/extraction (non-destructive).
 
 // Use splice(), when you need to modify (add/remove/replace) elements in the original array.
 
 // ------------------------------------------------------------------------------------------------------------
 
-// Method for checking the Index of an Array :
+// 1. Property for checking the Index of an Array :
 
 // let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
 // console.log(cars.indexOf("Honda"));       // 3
 
-// Method for checking whether it Includes that Particular Element or Not :
+// 2. Property for checking whether it Includes that Particular Element or Not :
 
 // let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 // console.log(days.includes("Sunday"))        // True
@@ -257,20 +297,23 @@
 // let myName = "Hasnain"
 // console.log(myName.includes("e"))         // False
 
-// New Method in ES6 for Creating a Shallow Copy :
+
+// ------------- New Method in ES6  (Spread Operator) for Creating a Copy : -------------
 
 // Old Method :
-// let array = ["1","2","3","4","5"]
-// let newArray = array                   // This creates a copy [by reference]
+
+// let array = ["1", "2", "3", "4", "5"]
+// let newArray = array                     // This creates a copy [by reference]
 // console.log(newArray)
 
 // New Method :
-// let array = ["1","2","3","4","5"]
+
+// let array = ["1", "2", "3", "4", "5"]
 // let newArray = [...array , "6","7"]      // This method also allows to add anything to this Array
 //              // Spread Operator
 // console.log(newArray)                    // New Syntax for Copying an Array
 
-// -----------------------------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
 
 // Nested Array :
 
@@ -295,7 +338,7 @@
 //                                    // kay us number say lay kar end tak ka part(slice) nikaal/extract kar lo .....
 // console.log(part)                     //  [4, 5, ["a", "b", "c", "d"]]
 
-// ----------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
 
 //  Strings:
 // Measuring Length and Extracting Parts :
@@ -476,6 +519,8 @@
 
 // ---------------------------------------------------------------------------------------------------------------
 
+// ------------------ Replacing a String by another --------------
+
 // let warName = "World War II"
 // let newWarName = warName.slice(0,12)
 // "OR"
@@ -487,7 +532,6 @@
 // let  warName = "World War II";
 
 // for (i = 0 ; i < warName.length; i++){
-
 //     console.log(warName[i])
 // }
 
@@ -500,10 +544,10 @@
 //     }
 // }
 
-// Iss code mein "i" ki value her step per increase ho rahii hai , aur condition "12" dafa check ho rahii hai lekin 
+// Iss code mein "i" ki value her step per increase ho rahii hai , aur condition "12" dafa check ho rahii hai lekin
 // sirf pehli dafa he condition true ho rahii hai , iss liye console sirf sik dafa he chal rha hai ...
 
-// "i" ki value change honay say conditin kesay false ho rahii hai , 
+// "i" ki value change honay say conditin kesay false ho rahii hai ,
 //    neechay wala code is baat ko explain kar rha hai :
 
 // let warName = "World War II";
@@ -515,14 +559,126 @@
 
 // let warName = "World War II";
 // for (i = 0; i < warName.length; i++) {
-//     if (warName.slice(0) === "World War II"){ 
+//     if (warName.slice(0) === "World War II"){
 //         console.log("The Second World War")
 //     }
 // }
 
-// Agar hum slice mein "i" ki jaga "0" dein gay toh aik he condition baar baar check ho gii , aur "0" mein her baar 
-//                  "World War II" he aaye ga , iss liye condition kabhi false nahi ho gii , 
-//                                 aur console "12" dafa print ho jaaye ga ...  
+// Agar hum slice mein "i" ki jaga "0" dein gay toh aik he condition baar baar check ho gii , aur "0" mein her baar
+//                  "World War II" he aaye ga , iss liye condition kabhi false nahi ho gii ,
+//                                 aur console "12" dafa print ho jaaye ga ...
 
 // ------------------------------------
+
+// This code targets the character "W" from a string :
+
+// let text = prompt("Enter a string :")
+// let warName = "World War II";
+
+// for (i = 0; i < warName.length; i++) {
+//     if (warName[i] === "W") {
+//         console.log("Found a W at position:", i);
+//         // break;
+//     }
+// }
+
+// -------------------------------
+
+// let text = prompt("Enter a string :")
+// // let warName = "World War II"
+
+// for ( i = 0 ; i < text.length ; i++){
+//     if (text.slice(0, i) === "Hello"){                      // "First Pattern Of Slicing"
+//         console.log("Hy")
+//     }
+// }
+
+// This code is checking that if the text.slice(0, i) === "Hello" . If this condition becomes true ,
+//                              the console shows the output "Hy" :
+
+// .slice(0, i) ka matlab hota hai kay "index 0" say text ki length "i" tak check karo kay kya kahin per "Hello"
+// moujood hai ya nahi , agar "Hello" aaye toh console "Hy" print ho jayega :
+
+// Example agar text = "HelloWorld" ho :
+
+// jab i = 0 → text.slice(0,0) = ""      (Empty String)
+// jab i = 1 → text.slice(0,1) = "H"
+// jab i = 2 → text.slice(0,2) = "He"
+// jab i = 3 → text.slice(0,3) = "Hel"
+// jab i = 4 → text.slice(0,4) = "Hell"
+// jab i = 5 → text.slice(0,5) = "Hello" (Condition is True)
+
+// ------------------------------
+
+// let warName = "World War II";
+
+// for (i = 0 ; i < warName.length ; i++){
+//     if(warName.slice(i, i + 12) === "World War II"){                 // "Second Pattern Of Slicing"
+//         console.log("The Second World War")
+//     }
+// }
+
+// Explanation of the condition :
+// if (warName.slice(i, i + 12) === "World War II")
+
+// Iska matlab hai :
+
+// "string ke andar position "i" se lekar "12" characters check karo".
+// Aur dekho ke kya woh "World War II" ke equal hai.
+// Ye sirf tabhi true hota hai jab "i=0" ho (kyunki poora text starting se hi match karta hai).
+// Is ka matlab hai kay condition sirf "index 0" per he true ho rahii hai , is liye console sirf aik baar he chalay ga ....
+
+// ---------------------------
+
+// First Pattern Of Slicing :
+
+// let warName = "World War II";
+// warName.slice(0)
+// console.log(warName.slice(0))
+
+// Second Pattern Of Slicing :
+
+// let warName = "World War II";
+
+// warName.slice(0, 12)
+// console.log(warName.slice(0, 12))
+
+// If i = 0 , warName.slice(i,12)
+// console.log(warName.slice(i,12))
+
+// warName.slice(i, i + 12)
+// console.log(warName.slice(i, i + 12))
+
+// Jo word hum nikaal rhay hain (slice kar rhay hai) , us ki length hamein pta honi zaroori hai .
+// Issi liye hum "i + 12" Likh rhay hain , kay hamein "World War II" ki length pta hai ...
+
+// -----------------------------
+
+// let warName = "World War II";
+
+// for (i = 0; i < warName.length; i++) {
+//   if (warName.slice(i, i + 12) === "World War II") {
+//     console.log("The Second World War");
+//   }
+// }
+
+
+// let text = "lorem ipsum dolor sit amet consectetur { World War II } adipisicing elit. Quos, voluptatum?";
+// let dangerWord = "World War II";
+// let wordFound = false;
+
+// for (var i = 0; i < text.length; i++) {
+//   if (text.slice(i, i + 12) === "World War II") {
+//     text = text.slice(0, i) + "the Second World War" + text.slice(i + 12);
+//     console.log(text)
+//     wordFound = true;       // Flag
+//     break;
+
+//   }
+// }
+
+// if (wordFound === false) {
+//     console.log("Danger Word Not Found");
+//   }
+
 
