@@ -18,6 +18,24 @@
 // console.log(students[3/3])
 // console.log(students[2+1])
 
+
+// ------------------------------
+
+// let array = [];
+
+// array[200] = "Hasnain";
+// array[150] = "Raza";
+
+// // console.log(array)
+
+// // Accessing these Elements from 'Length' 
+
+// console.log(array[array.length - 1]);   // Returns Last Element of Array => array.length = 201 => 201 - 1 =  
+
+// console.log(array[array.length - 51]);  // Returns the Element at Index 150
+
+// ------------------------------- 
+
 // Primitive and Non-Primitive Data Types :
 
 // Primitive Data Types :
@@ -677,16 +695,16 @@
 
 // ----------------------------- TWO DIMENSIONAL ARRAY : ---------------------------
 
-let twoDimensionalArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+// let twoDimensionalArray = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
 
-console.log(`Two Dimensional Array is : ${twoDimensionalArray}`); 
-// Two Dimensional Array is : 1,2,3,4,5,6,7,8,9   -->   `${array}` Array ko string me convert karta hai
+// console.log(`Two Dimensional Array is : ${twoDimensionalArray}`); 
+// // Two Dimensional Array is : 1,2,3,4,5,6,7,8,9   -->   `${array}` Array ko string me convert karta hai
 
-console.log("Two Dimensional Array is", twoDimensionalArray);
+// console.log("Two Dimensional Array is", twoDimensionalArray);
 // // Two Dimensional Array is [ [1,2,3], [4,5,6], [7,8,9] ]
 
 // console.log(`Length of Two Dimensional Array is : ${twoDimensionalArray.length}`);
