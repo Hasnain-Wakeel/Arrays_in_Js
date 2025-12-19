@@ -35,8 +35,7 @@
 // 1. Array
 // 2. Function
 // 3. Object
-// 4. Date 
-
+// 4. Date
 
 // Examples For Learning Differences Between Primitive and Non-Primitive Data Types :
 
@@ -66,7 +65,7 @@
 
 // // Mutable (Changeable) / Non-Primitive Data Types :
 
-// -------------  1 : Wrong Approach :  ---------------- 
+// -------------  1 : Wrong Approach :  ----------------
 
 // let person1 = ["Saad", "Ali", "Zain"]
 // let person2 = person1
@@ -78,7 +77,6 @@
 // console.log(person1) // ["Saad", "Ali", "Zain"]
 // console.log(person2) // Anas
 
-
 // --------------  2 : Correct Approach :  ----------------
 
 // let array1 = ["a", "b","c"];
@@ -88,13 +86,12 @@
 
 // // array2 = ["c", "d"];    // The issue was that ===>> "I was not accessing/targeting the newArray correctly" .....
 
-// array2[0] = "x";  
-// array1[1] = "y";   
-// array2[2] = "z";          
+// array2[0] = "x";
+// array1[1] = "y";
+// array2[2] = "z";
 
 // console.log(array1);    // ["x", "y", "z"]
 // console.log(array2);    // ["x", "y", "z"]
-
 
 // ------------------------------------------------------------------------------
 
@@ -190,7 +187,7 @@
 // If I enter (1, 4) ===>> it subracts the first parameter from the second parameter (i.e : 4-1 = 3)
 // and then returns the new array according to the answer of sutraction .....
 
-// Example : 
+// Example :
 
 // let cars = ["Toyota", "BMW", "Ford", "Honda", "Audi", "Volvo"];
 // let removedCars = cars.slice(1, 4);       // 4-1 = 3 => [BMW, Ford, Honda] it returns 3 elements
@@ -199,7 +196,7 @@
 
 // 2. ------------------------ Splice : ---------------------------
 
-// The 1st parameter takes an index and 2nd parameter takes the number of elements to be removed from the array ....  
+// The 1st parameter takes an index and 2nd parameter takes the number of elements to be removed from the array ....
 // The 3rd parameter takes the elements to be added to the array after the removed elements ....
 
 // Understand 'splice flow' with this Example :
@@ -214,7 +211,7 @@
 // Here we removed 2 elements from the array and added 2 new elements to the array ....
 // But this only showing the removed part of the array ...
 // And the updated array is not showing ...
-// If we want to show the updated array then we have to console "fruits" again, 
+// If we want to show the updated array then we have to console "fruits" again,
 // or do something like this (saving the updated array in a variable) ...
 
 // ------------------------------------------------------------------------------------------------
@@ -245,7 +242,6 @@
 // start: index where extraction begins.
 // end: index before which extraction stops (not included).
 
-
 // -------- splice(start, deleteCount, item1, item2, ...)  -------
 
 // start: index where changes begin.
@@ -262,13 +258,11 @@
 // console.log(sliced);         // ["mango", "banana"]
 // console.log(fruits);         // ["apple", "mango", "banana", "orange", "grapes"]
 
-
 // splice example :
 
 // let spliced = fruits.splice(2, 2, "kiwi", "pear");
 // console.log(spliced);        // ["banana", "orange"]
 // console.log(fruits);         // ["apple", "mango", "kiwi", "pear", "grapes"]
-
 
 // ----------------------- In short : --------------------------
 
@@ -296,7 +290,6 @@
 
 // let myName = "Hasnain"
 // console.log(myName.includes("e"))         // False
-
 
 // ------------- New Method in ES6  (Spread Operator) for Creating a Copy : -------------
 
@@ -662,7 +655,6 @@
 //   }
 // }
 
-
 // let text = "lorem ipsum dolor sit amet consectetur { World War II } adipisicing elit. Quos, voluptatum?";
 // let dangerWord = "World War II";
 // let wordFound = false;
@@ -681,4 +673,43 @@
 //     console.log("Danger Word Not Found");
 //   }
 
+// -------------------------------------------------------------------------------------
+
+// ----------------------------- TWO DIMENSIONAL ARRAY : ---------------------------
+
+let twoDimensionalArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+console.log(`Two Dimensional Array is : ${twoDimensionalArray}`); 
+// Two Dimensional Array is : 1,2,3,4,5,6,7,8,9   -->   `${array}` Array ko string me convert karta hai
+
+console.log("Two Dimensional Array is", twoDimensionalArray);
+// // Two Dimensional Array is [ [1,2,3], [4,5,6], [7,8,9] ]
+
+// console.log(`Length of Two Dimensional Array is : ${twoDimensionalArray.length}`);
+
+// console.log(twoDimensionalArray[2][1]);
+
+// -----------------------------------
+
+
+// Printing / Iterating Elements Of/On a Two Dimensional Array :
+
+// let twoDimensionalArray = [ [1, 2, 3] , [4, 5, 6] , [7, 8, 9] , ];
+
+
+// for (let i = 0 ; i < twoDimensionalArray.length ; i++){
+//     console.log(twoDimensionalArray[i]);    // Prints the Elements of outer Array (Inner Arrays);
+// }
+
+// for (let i = 0 ; i < twoDimensionalArray.length ; i++){
+//     for (let j = 0 ; j < twoDimensionalArray[i].length ; j++){    // Nested Array;
+//         console.log(twoDimensionalArray[i][j]);
+//     }
+// }
+
+// ------------------------------------------------
 
